@@ -1,47 +1,37 @@
 @font-face {
-	font-family: LV;
-	src: url("/font/LouisVuitton-Medium.otf") format("opentype");
+	font-family: Lugos-Regular;
+	src: url("/font/Lugos-Regular.otf") format("opentype");
 }
 
 @font-face {
-	font-family: LVReg;
-	src: url("/font/LouisVuitton-Regular.otf") format("opentype");
+	font-family: Coolvetica;
+	src: url("/font/coolvetica rg.ttf") format("opentype");
 }
 
 body {
-	font-family: LV, sans-serif;
+	font-family: Coolvetica, sans-serif;
 	margin : 0;
-	background-color: #FFFFFF;
+	background-color: #EFEFEF;
 }
 
 h1 {
 	text-align: center;
-	color: #BFA69A;
+	color: #2E2F30;
 }
 
 a {
 	text-decoration: none;
-	color: #BFA69A;
+	color: #2E2F30;
 }
 
 h2 {
-	color: #533F34;
+	color: #2E2F30;
 }
 
 .center {
 	margin: 0px auto;
 	width: 130px;
 	display: none;
-}
-
-#loader {
-	background-color: #BFA69A;
-	margin: 0px auto;
-	width: 75%;
-	height: 5%;
-	text-align: center;
-	text-decoration: none;
-	padding: 0px 22px;
 }
 
 #logo {
@@ -62,45 +52,9 @@ h2 {
 	text-align: center;
 }
 
-.documentdb {
-	width: 50%;
-	float: left;
-	clear: none;
-	background-color: #D8D8D8;
-	margin-bottom: 10%;
-}
-
-.salesforce {
-	width: 50%;
-	float: left;
-	clear: none;
-	background-color: #D8D8D8;
-	margin-bottom: 10%;
-}
-
-.show {
-	background-color: #BFA69A;
-	font-family: LVReg, sans-serif;
-	font-size: 20px;
-	border: none;
-	margin: 0px auto;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-}
-
-.details {
-	display: none;
-}
-
-.visual {
-	margin: 5%;
-}
-
 input[type=text] {
 	width: 40%;
-	font-family: LVReg, sans-serif;
+	font-family: Coolvetica, sans-serif;
 	font-size: 1em;
 	display: block;
 	padding: 12px 20px;
@@ -111,8 +65,8 @@ input[type=text] {
 }
 
 input[type=submit] {
-	background-color: #BFA69A;
-	font-family: LVReg, sans-serif;
+	background-color: #2E2F30;
+	font-family: Coolvetica, sans-serif;
 	font-size: 1.3em;
 	border: none;
 	margin: 0px auto;
@@ -124,7 +78,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-	color: #BFA69A;
+	color: #2E2F30;
 	background-color: #533F34;
 	cursor: pointer;
 }
