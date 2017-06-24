@@ -16,16 +16,16 @@ body {
 
 h1 {
 	text-align: center;
-	color: #2E2F30;
+	color: #FFFFFF;
 }
 
 a {
 	text-decoration: none;
-	color: #2E2F30;
+	color: #EFEFEF;
 }
 
 h2 {
-	color: #2E2F30;
+	color: #5434c6ff;
 }
 
 .center {
@@ -45,7 +45,7 @@ h2 {
 	margin-top: 0px;
 	margin-bottom: 10%;
 	padding: 30px;
-	background-color: #221616;
+	background-color: #5434c6;
 }
 
 .result {
@@ -78,7 +78,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-	color: #2E2F30;
-	background-color: #533F34;
+	color: #EFEFEF;
+	background-color: #5434c6;
 	cursor: pointer;
 }
