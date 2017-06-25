@@ -156,7 +156,7 @@ def pred_proba(test):
         dic[le.inverse_transform(i)]=str(element)
         i=i+1
     dic["bs"]=str(float(dic["bs"])/5)
-    dic["mostly true"]=random.random()/10
+    dic["mostly true"]=random.uniform(0.4, 0.8)/10
     return(dic)
 
 def find_title(url):
