@@ -5,7 +5,7 @@ const Handlebars = require('handlebars');
 const app = express();
 const Client = require('node-rest-client').Client;
 const client = new Client();
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 8080;
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
