@@ -22,7 +22,7 @@ $(document).ready(function() {
 					backgroundColor: '#EFEFEF',
 					style: {
             fontFamily: 'Spot',
-						fontSize: 'large' 
+						fontSize: 'large'
         },
 	        type: 'column'
 	   },
@@ -48,7 +48,7 @@ $(document).ready(function() {
     };
 		site = '{{url}}';
     $.getJSON('http://146.148.26.189:5000/api/get?url_input_page2=' + site, function(data) {
-			options.title = [data['title']];
+			options.title.text = [data['title']];
 			options.series[0].data = [data['bs'] * 10, data['mostly false'] * 10, data['no factual content'] * 10,
 		data['satire'] * 10, data['junksci'] * 10, data['state'] * 10,
 	data['bias'] * 10, data['mixture of true and false'] * 10, data['fake'] * 10, data['mostly true'] * 10, data['hate'] * 10,
