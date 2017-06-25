@@ -3,7 +3,6 @@ const https = require('https');
 const exphbs = require('express-handlebars');
 const Handlebars = require('handlebars');
 const app = express();
-const api = "http://fd6ba847.ngrok.io/api/get?url_input_page=";
 const Client = require('node-rest-client').Client;
 const client = new Client();
 
@@ -16,10 +15,10 @@ app.get('/', function (req, res) {
 })
 
 app.get('/result', function (req, res) {
-	client.get("http://fd6ba847.ngrok.io/api/get?url_input_page=" + req.query.id, function (data, response) {
+	client.get("http://08c3c559.ngrok.io/api/get?url_input_page=" + req.query.id, function (data, response) {
 		let object = JSON.parse(data);
 		console.log(object);
-		res.render('result', {json: object});
+		res.render('result', {json: object, url: req.query.id});
 });
 })
 

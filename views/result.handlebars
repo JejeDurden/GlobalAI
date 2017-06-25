@@ -1,6 +1,6 @@
 <div class="left">
 	<h2> Content Scan </h2>
-	<div id="myChart" width="400" div="400"></div>
+	<div id="myChart" width="600" div="400"></div>
 </div>
 <div class="right">
 	<h2> Image Scan </h2>
@@ -23,35 +23,32 @@ $(document).ready(function() {
 	        type: 'column'
 	   },
 		title: {
-			text: 'Pollution selon Airparif'
+			text: 'Title'
 		},
 		pane: {
-			size: '85%'
+			size: '90%'
 		},
 		xAxis: {
-			categories: ['Hier', 'Jour', 'Demain']
+			categories: ['BS', 'Mostly False', 'No Factual Content', 'Satire', 'Junksci', 'State', 'Bias', 'Mixture of True and False', 'Fake', 'Mostly True', 'Hate', 'Conspiracy']
 		},
 		yAxis: {
-			title: {
-				text: 'Indice'
-			}
+				min: 0,
+				max: 1
 		},
 		series: [{
-			name: 'polution',
-			threshold: 2,
-			color: {
-            linearGradient: [0, 0, 0, 500],
-            stops: [
-                [0, 'rgb(255, 255, 255)'],
-                [1, 'rgb(100, 100, 155)']
-            ]
-			},
-			data: [0.43, 0.24, .42]
+			name: 'Confidence rate',
+			type: 'area',
+			color: '#ffc615',
+			data: [0.43, 0.24, 0.42]
 		}]
     };
-    $.getJSON('http://www.airparif.asso.fr/appli/api/indice', function(data) {
-			options.series[0].name = "Paris";
-			options.series[0].data = [data[0]['indice'], data[1]['indice'], data[2]['indice']];
+		site = '{{url}}';
+    $.getJSON('http://08c3c559.ngrok.io/api/get?url_input_page2=' + site, function(data) {
+			options.title = [data['title']];
+			options.series[0].data = [data['bs'] * 10, data['mostly false'] * 10, data['no factual content'] * 10,
+		data['satire'] * 10, data['junksci'] * 10, data['state'] * 10,
+	data['bias'] * 10, data['mixture of true and false'] * 10, data['fake'] * 10, data['mostly true'] * 10, data['hate'] * 10,
+	data['conspiracy'] * 10];
         	var chart = new Highcharts.Chart('myChart', options);
     });
 });

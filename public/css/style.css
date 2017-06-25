@@ -39,13 +39,12 @@ h2 {
 
 .left {
 		margin: 0 auto;
-		width: 80%;
-		border: solid 1px blue;
+		width: 100%;
 }
 
 .right {
 		margin: 0 auto;
-		width: 80%;
+		width: 100%;
 }
 
 img {
@@ -60,9 +59,13 @@ img {
 	display: block;
 }
 
+#myChart {
+	border: solid 1px #5434c6;
+}
+
 .head {
 	margin-top: 0px;
-	margin-bottom: 10%;
+	margin-bottom: 5%;
 	padding: 30px;
 	background-color: #5434c6;
 }
