@@ -10,6 +10,7 @@
 
 body {
 	font-family: Coolvetica, sans-serif;
+	letter-spacing: 1.5em;
 	margin : 0;
 	background-color: #EFEFEF;
 }
@@ -59,6 +60,11 @@ img {
 	width: 400px;
 	margin: 20px auto;
 	display: block;
+}
+
+.similar_images {
+	border: 1px solid #5434c6;
+
 }
 
 #logo {
