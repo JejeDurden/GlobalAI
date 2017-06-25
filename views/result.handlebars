@@ -1,13 +1,16 @@
 <div class="left">
 	<h2> Content Scan </h2>
+	<h3>Here is what our AI think about this article's content</h3>
 	<div id="myChart" width="600" div="400"></div>
 </div>
 <div class="right">
 	<h2> Image Scan </h2>
+	<h3>Here is the main image in this article</h3>
 	<img src={{json.first_images_in_page.[0]}}>
+	<h3>Here are similar images</h3>
 	<ul class="similar_images">
   {{#each json.similar_images }}
-    <li><img src={{this}}></li>
+    <li><img class="list" src={{this}}></li>
   {{/each}}
 	</ul>
 </div>
@@ -43,7 +46,7 @@ $(document).ready(function() {
 		}]
     };
 		site = '{{url}}';
-    $.getJSON('http://127.0.0.1:5000/api/get?url_input_page2=' + site, function(data) {
+    $.getJSON('http://146.148.26.189:5000/api/get?url_input_page2=' + site, function(data) {
 			options.title = [data['title']];
 			options.series[0].data = [data['bs'] * 10, data['mostly false'] * 10, data['no factual content'] * 10,
 		data['satire'] * 10, data['junksci'] * 10, data['state'] * 10,

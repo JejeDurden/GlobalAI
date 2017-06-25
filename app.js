@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/result', function (req, res) {
-	client.get("http://127.0.0.1:5000/api/get?url_input_page=" + req.query.id, function (data, response) {
+	client.get("http://146.148.26.189:5000/api/get?url_input_page=" + req.query.id, function (data, response) {
 		let object = JSON.parse(data);
 		console.log(object);
 		res.render('result', {json: object, url: req.query.id});
