@@ -1,7 +1,7 @@
 <div class="left">
 	<h2> Content Scan </h2>
 	<h3>Here is what our AI think about this article's content</h3>
-	<div id="myChart" width="600" div="400"></div>
+	<div id="myChart" width="600" div="600"></div>
 </div>
 <div class="right">
 	<h2> Image Scan </h2>
@@ -10,7 +10,7 @@
 	<h3>Here are similar images</h3>
 	<ul class="similar_images">
   {{#each json.similar_images }}
-    <li><img class="list" src={{this}}></li>
+    <img class="list" src={{this}}>
   {{/each}}
 	</ul>
 </div>
