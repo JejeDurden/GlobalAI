@@ -13,7 +13,6 @@ from bs4 import BeautifulSoup
 import re
 from unidecode import unidecode
 
-
 #--------------------------------#
 import pycurl
 import json

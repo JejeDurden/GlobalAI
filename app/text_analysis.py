@@ -51,6 +51,9 @@ import xgboost as xgb
 import urllib2
 from bs4 import BeautifulSoup
 
+from sklearn.preprocessing import StandardScaler
+
+
 def word_stemmer(mots):
     snowball = SnowballStemmer('english') # for english use Porter stem algo
     preprocessed_docs = []
@@ -151,6 +154,7 @@ def pred_proba(test):
     for element in pred_prob[0]:
         dic[le.inverse_transform(i)]=str(element)
         i=i+1
+    dic["bs"]=str(float(dic["bs"])/5)
     return(dic)
 
 def find_title(url):
