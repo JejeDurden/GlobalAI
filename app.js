@@ -23,6 +23,6 @@ app.get('/result', function (req, res) {
 });
 })
 
-app.listen(PORT, '0.0.0.0' function () {
+app.listen(PORT, '0.0.0.0', function () {
 	console.log('Running app');
 })
