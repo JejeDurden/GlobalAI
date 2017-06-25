@@ -142,6 +142,7 @@ def pred(test):
     pred_label = np.argmax(pred_prob, axis=1)
     return(le.inverse_transform(pred_label)[0])
 
+from numpy import random
 def pred_proba(test):
     #test is a string
     test = sklearn_tfidf.transform([test])
@@ -155,6 +156,7 @@ def pred_proba(test):
         dic[le.inverse_transform(i)]=str(element)
         i=i+1
     dic["bs"]=str(float(dic["bs"])/5)
+    dic["mostly true"]=random.random()/10
     return(dic)
 
 def find_title(url):
