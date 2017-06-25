@@ -10,10 +10,14 @@
 $(document).ready(function() {
     var options = {
 		chart: {
-			type: 'bar'
-		},
+	        polar: true,
+	        type: 'column'
+	   },
 		title: {
 			text: 'Pollution selon Airparif'
+		},
+		pane: {
+			size: '85%'
 		},
 		xAxis: {
 			categories: ['Hier', 'Jour', 'Demain']
