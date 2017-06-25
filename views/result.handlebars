@@ -5,12 +5,21 @@
 <div class="right">
 	<h2> Image Scan </h2>
 	<img src={{json.first_images_in_page.[0]}}>
+	<ul class="similar_images">
+  {{#each json.similar_images }}
+    <li><img src={{this}}></li>
+  {{/each}}
+	</ul>
 </div>
 <script>
 $(document).ready(function() {
     var options = {
 		chart: {
 	        polar: true,
+					backgroundColor: '#EFEFEF',
+					style: {
+            fontFamily: 'Spot'
+        },
 	        type: 'column'
 	   },
 		title: {
@@ -29,6 +38,14 @@ $(document).ready(function() {
 		},
 		series: [{
 			name: 'polution',
+			threshold: 2,
+			color: {
+            linearGradient: [0, 0, 0, 500],
+            stops: [
+                [0, 'rgb(255, 255, 255)'],
+                [1, 'rgb(100, 100, 155)']
+            ]
+			},
 			data: [0.43, 0.24, .42]
 		}]
     };

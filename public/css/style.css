@@ -38,15 +38,14 @@ h2 {
 }
 
 .left {
-	float: left;
-	width: 40%;
-	margin-left: 30px;
+		margin: 0 auto;
+		width: 80%;
+		border: solid 1px blue;
 }
 
 .right {
-	float: right;
-	width: 40%;
-	margin-right: 30px;
+		margin: 0 auto;
+		width: 80%;
 }
 
 img {
@@ -55,7 +54,7 @@ img {
 }
 
 #logo {
-	width: 5%;
+	width: 15%;
 	margin: 0px auto;
 	text-align: center;
 	display: block;
