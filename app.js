@@ -15,13 +15,13 @@ app.get('/', function (req, res) {
 })
 
 app.get('/result', function (req, res) {
-	client.get("http://08c3c559.ngrok.io/api/get?url_input_page=" + req.query.id, function (data, response) {
+	client.get("http://127.0.0.1:5000/api/get?url_input_page=" + req.query.id, function (data, response) {
 		let object = JSON.parse(data);
 		console.log(object);
 		res.render('result', {json: object, url: req.query.id});
 });
 })
 
-app.listen(3000, function () {
+app.listen(80, function () {
 	console.log('Running app');
 })

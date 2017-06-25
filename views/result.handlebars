@@ -43,7 +43,7 @@ $(document).ready(function() {
 		}]
     };
 		site = '{{url}}';
-    $.getJSON('http://08c3c559.ngrok.io/api/get?url_input_page2=' + site, function(data) {
+    $.getJSON('http://127.0.0.1:5000/api/get?url_input_page2=' + site, function(data) {
 			options.title = [data['title']];
 			options.series[0].data = [data['bs'] * 10, data['mostly false'] * 10, data['no factual content'] * 10,
 		data['satire'] * 10, data['junksci'] * 10, data['state'] * 10,
