@@ -48,8 +48,8 @@ from sklearn.utils.extmath import density
 from sklearn import metrics
 from sklearn.cross_validation import train_test_split
 import xgboost as xgb
-
-
+import urllib2
+from bs4 import BeautifulSoup
 
 def word_stemmer(mots):
     snowball = SnowballStemmer('english') # for english use Porter stem algo
@@ -149,7 +149,7 @@ def pred_proba(test):
     i=0
     dic={}
     for element in pred_prob[0]:
-        dic[le.inverse_transform(i)]=element
+        dic[le.inverse_transform(i)]=str(element)
         i=i+1
     return(dic)
 
