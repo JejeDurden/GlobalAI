@@ -113,12 +113,12 @@ def nettoyer_texte(text, lemma = False, Stemm = False ):
     return textn
 
 #----------------------------------#
-df = pd.read_csv("data/fake2.csv",sep="|",encoding="latin1")
-all_news = pd.read_csv("data/fake1.csv",sep="|",encoding="latin1")
+#df = pd.read_csv("data/fake2.csv",sep="|",encoding="latin1")
+#all_news = pd.read_csv("data/fake1.csv",sep="|",encoding="latin1")
 
-tokenize = lambda doc: doc.split(" ")
-sklearn_tfidf = TfidfVectorizer(norm='l2',min_df=0, use_idf=True, smooth_idf=False, sublinear_tf=True, tokenizer=tokenize) 
-tfidf_title = sklearn_tfidf.fit_transform(list(all_news['title']) + list(df["message"]))
+#tokenize = lambda doc: doc.split(" ")
+#sklearn_tfidf = TfidfVectorizer(norm='l2',min_df=0, use_idf=True, smooth_idf=False, sublinear_tf=True, tokenizer=tokenize) 
+#tfidf_title = sklearn_tfidf.fit_transform(list(all_news['title']) + list(df["message"]))
 
 #----------------------------------#
 #load models
@@ -135,10 +135,31 @@ def pred(test):
     test = sklearn_tfidf.transform([test])
     test = ch2.transform(test)
     xg_test = xgb.DMatrix(test)
-    pred_prob = bst_.predict(xg_test).reshape(test.shape[0], 8)
+    pred_prob = bst.predict(xg_test).reshape(test.shape[0], 12)
     pred_label = np.argmax(pred_prob, axis=1)
     return(le.inverse_transform(pred_label)[0])
 
+def pred_proba(test):
+    #test is a string
+    test = sklearn_tfidf.transform([test])
+    test = ch2.transform(test)
+    xg_test = xgb.DMatrix(test)
+    pred_prob = bst.predict(xg_test).reshape(test.shape[0], 12)
+    pred_label = np.argmax(pred_prob, axis=1)
+    i=0
+    dic={}
+    for element in pred_prob[0]:
+        dic[le.inverse_transform(i)]=element
+        i=i+1
+    return(dic)
 
+def find_title(url):
+    test_url = url
+    request = urllib2.Request(test_url)
+    page = urllib2.urlopen(request).read()
+    soup = BeautifulSoup(page,"html.parser")
+    links = soup.findAll('h1')
+    links = links[0]
+    return links.text
 
-print(pred("I am a GOD, like me and I will make martinis great again!"))
+#print(pred_proba("Trump will remove the US from the Paris treaty"))

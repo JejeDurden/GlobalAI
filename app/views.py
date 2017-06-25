@@ -1,6 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+
 ##------------------------------------------------------------##
 #Imports
 from app import app,image_analyser as ia
+from app import text_analysis as ta
+
 from flask import make_response, render_template,send_from_directory,\
                     abort, jsonify, Blueprint, Flask, request,current_app
 import os
@@ -22,6 +29,18 @@ main = Blueprint('main', __name__)
 
 #var
 keys=['similar_images', 'titles', 'descriptions', 'links',"first_images_in_page"]
+keys2=['title','bias',
+ 'bs',
+ 'conspiracy',
+ 'fake',
+ 'hate',
+ 'junksci',
+ 'mixture of true and false',
+ 'mostly false',
+ 'mostly true',
+ 'no factual content',
+ 'satire',
+ 'state']
 
 def crossdomain(origin=None, methods=None, headers=None, max_age=21600,
                 attach_to_all=True, automatic_options=True):
@@ -108,6 +127,16 @@ def get_image_info():
             return json.dumps(out)
         else:
             return(json.dumps({key: None for key in keys}))
+    if 'url_input_page2' in request.args:
+        if request.args['url_input_page2']:
+            url = request.args["url_input_page2"]
+            text=ta.find_title(url)
+            out=ta.pred_proba(text)
+            out["title"]=text #ligne à modfier pour lui faire prendre le titre
+            return json.dumps(out)
+        else:
+            return(json.dumps({key: None for key in keys2}))  
+     
         
     else:
         return "WHAAAAAAAAAAT?"
