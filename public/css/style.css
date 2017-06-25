@@ -72,6 +72,11 @@ img {
 	border: solid 1px #5434c6;
 }
 
+.similar_images h3 {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
 #logo {
 	width: 15%;
 	margin: 0px auto;

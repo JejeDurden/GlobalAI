@@ -7,8 +7,9 @@
 	<h2> Image Scan </h2>
 	<h3>Here is the main image in this article</h3>
 	<img src={{json.first_images_in_page.[0]}}>
-	<h3>Here are similar images</h3>
+
 	<ul class="similar_images">
+	<h3>Here are similar images</h3>
   {{#each json.similar_images }}
     <img class="list" src={{this}}>
   {{/each}}
@@ -21,8 +22,7 @@ $(document).ready(function() {
 	        polar: true,
 					backgroundColor: '#EFEFEF',
 					style: {
-            fontFamily: 'Spot',
-						fontSize: 'large'
+            fontFamily: 'Coolvetica',
         },
 	        type: 'column'
 	   },
